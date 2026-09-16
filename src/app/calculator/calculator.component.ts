@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './calculator.component.html',
 })
 export class CalculatorComponent {
-  result = 0;
+
+  result: number | string = 0;
 
   add(firstNumber: string, secondNumber: string): void {
     this.result = Number(firstNumber) + Number(secondNumber);
@@ -21,12 +22,11 @@ export class CalculatorComponent {
     this.result = Number(firstNumber) * Number(secondNumber);
   }
 
-divide(firstNumber: string, secondNumber: string): void {
-  if (Number(secondNumber) === 0) {
-    this.result = 0;
-  } else {
-    this.result = Number(firstNumber) / Number(secondNumber);
+  divide(firstNumber: string, secondNumber: string): void {
+    if (Number(secondNumber) === 0) {
+      this.result = 'undefined';
+    } else {
+      this.result = Number(firstNumber) / Number(secondNumber);
+    }
   }
-}
-
 }
